@@ -1,0 +1,45 @@
+//ApplicationServer\Open_Pos\internal\positions\fno_pos.proto
+
+syntax = "proto3";
+
+package positions;
+
+option go_package = ".";
+
+// Request message
+service FnoPositionService {
+    rpc GetFNOPosition(FnoPositionRequest) returns (FcpDetailListResponse);
+}
+
+message FnoPositionRequest {
+    string FCP_CLM_MTCH_ACCNT = 1;
+}
+
+message FcpDetail {
+    string FFO_CONTRACT = 1;
+    string FFO_PSTN = 2;
+    int32 FFO_QTY = 3;
+    float FFO_AVG_PRC = 4;
+    string FCP_XCHNG_CD = 5;
+    int32 FCP_IBUY_QTY = 6;
+    string FCP_CLM_MTCH_ACCNT = 7;
+    string FCP_PRDCT_TYP = 8;
+    string FCP_INDSTK = 9;
+    string FCP_UNDRLYNG = 10;
+    string FCP_EXPRY_DT = 11;
+    string FCP_EXER_TYP = 12;
+    string FCP_OPT_TYP = 13;
+    float FCP_STRK_PRC = 14;
+    string FCP_UCC_CD = 15;
+    string FCP_OPNPSTN_FLW = 16;
+}
+
+message FcpDetailListResponse {
+    repeated FcpDetail FcpDetails = 1;
+}
+
+
+//protoc --proto_path=internal --go_out=internal/generated --go-grpc_out=internal/generated internal/positions/fno_pos.proto
+
+//Updated internal/generated to generated
+//protoc --proto_path=internal --go_out=generated --go-grpc_out=generated internal/positions/fno_pos.proto

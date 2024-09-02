@@ -1,0 +1,64 @@
+// ApplicationServer\Comd_Open_Pos_Service\internal\positions\commodities.proto
+
+// protoc --proto_path=internal --go_out=generated --go-grpc_out=generated internal/positions/commodities.proto
+syntax = "proto3";
+
+package positions;
+
+option go_package = ".";
+
+service CCPService {
+    rpc GetCCPData (CCPRequest) returns (CCPResponse);
+}
+
+message CCPRequest {
+    string CCP_CLM_MTCH_ACCNT = 1;
+}
+
+message CCPResponse {
+    repeated CommodityPositions COMMO = 1;
+}
+
+message CommodityPositions {
+    string CCP_CLM_MTCH_ACCNT = 1;
+    string CCP_XCHNG_CD = 2;
+    string CCP_PRDCT_TYP = 3;
+    string CCP_INDSTK = 4;
+    string CCP_UNDRLYNG = 5;
+    string CCP_EXPRY_DT = 6;
+    string CCP_EXER_TYP = 7;
+    int64 CCP_STRK_PRC = 8;
+    string CCP_OPT_TYP = 9;
+    int64 CCP_IBUY_QTY = 10;
+    double CCP_IBUY_ORD_VAL = 11;
+    int64 CCP_ISELL_QTY = 12;
+    double CCP_ISELL_ORD_VAL = 13;
+    int64 CCP_EXBUY_QTY = 14;
+    double CCP_EXBUY_ORD_VAL = 15;
+    int64 CCP_EXSELL_QTY = 16;
+    double CCP_EXSELL_ORD_VAL = 17;
+    int64 CCP_BUY_EXCTD_QTY = 18;
+    int64 CCP_SELL_EXCTD_QTY = 19;
+    string CCP_OPNPSTN_FLW = 20;
+    int64 CCP_OPNPSTN_QTY = 21;
+    double CCP_OPNPSTN_VAL = 22;
+    int64 CCP_EXRC_QTY = 23;
+    int64 CCP_ASGND_QTY = 24;
+    double CCP_OPT_PREMIUM = 25;
+    double CCP_MTM_OPN_VAL = 26;
+    double CCP_IMTM_OPN_VAL = 27;
+    double CCP_EXTRMLOSS_MRGN_EXTRA = 28;
+    double CCP_ADDNL_MRGN = 29;
+    double CCP_SPCL_MRGN = 30;
+    double CCP_TNDR_MRGN = 31;
+    double CCP_DLVRY_MRGN = 32;
+    double CCP_EXTRM_MIN_LOSS_MRGN = 33;
+    string CCP_MTM_FLG = 34;
+    double CCP_EXTRM_LOSS_MRGN = 35;
+    double CCP_FLAT_VAL_MRGN = 36;
+    double CCP_TRG_PRC = 37;
+    double CCP_MIN_TRG_PRC = 38;
+    double CCP_DEVOLMNT_MRGN = 39;
+    int32 CCP_MTMSQ_ORDCNT = 40;
+    double CCP_AVG_PRC = 41;
+}

@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "\"*.pc\"": "\"html\"",
+        "otp": "c"
+    }
+}

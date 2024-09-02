@@ -1,0 +1,66 @@
+// protoc --proto_path=internal --go_out=generated --go-grpc_out=generated internal/positions/Mtf_Open.proto
+syntax = "proto3";
+package PositionService;
+
+option go_package =".";
+
+service MtfPositionService
+{  
+    rpc GetMtfPosition(PositionRequest) returns (PositionResponse);
+}
+
+message PositionRequest 
+{ 
+string epb_clm_mtch_accnt = 1;    
+}
+
+message EquityPosition {
+  string epb_clm_mtch_accnt = 1; 
+  string epb_xchng_cd = 2;
+  string epb_xchng_sgmnt_cd = 3;
+  int32 epb_xchng_sgmnt_sttlmnt = 4;
+  string epb_stck_cd = 5;
+  int32 epb_orgnl_pstn_qty = 6;
+  double epb_rate = 7;
+  double epb_orgnl_amt_payble = 8;
+  double epb_orgnl_mrgn_amt = 9;
+  int32 epb_sell_qty = 10;
+  int32 epb_cvr_ord_qty = 11;
+  double epb_net_mrgn_amt = 12;
+  double epb_net_amt_payble = 13;
+  int32 epb_net_pstn_qty = 14;
+  int32 epb_ctd_qty = 15;
+  string epb_pstn_stts = 16;
+  string epb_lpc_calc_stts = 17;
+  string epb_sqroff_mode = 18;
+  string epb_pstn_trd_dt = 19;
+  string epb_mtm_prcs_flg = 20;
+  string epb_last_mdfcn_dt = 21;
+  string epb_ins_date = 22;
+  string epb_close_date = 23;
+  string epb_sys_fail_flg = 24;
+  string epb_last_pymnt_dt = 25;
+  string epb_lpc_calc_end_dt = 26;
+  string epb_mtm_cansq = 27;
+  string epb_expiry_dt = 28;
+  double epb_min_mrgn = 29;
+  string epb_mrgn_dbcr_prcs_flg = 30;
+  string epb_dp_id = 31;
+  string epb_dp_clnt_id = 32;
+  string epb_pledge_stts = 33;
+  double epb_btst_net_mrgn_amt = 34;
+  double epb_btst_mrgn_blckd = 35;
+  string epb_btst_mrgn_dbcr_flg = 36;
+  string epb_btst_sgmnt_cd = 37;
+  int32 epb_btst_stlmnt = 38;
+  double epb_btst_csh_blckd = 39;
+  double epb_btst_sam_blckd = 40;
+  string epb_btst_calc_dt = 41;
+  string epb_dbcr_calc_dt = 42;
+  string epb_nsdl_ref_no = 43;
+  string epb_mrgn_withheld_flg = 44;
+}
+
+message PositionResponse {
+  repeated EquityPosition equity = 1;
+}

@@ -1,0 +1,35 @@
+//ApplicationServer\Open_Pos\internal\positions\fno_pos.proto
+
+syntax = "proto3";
+
+package positions;
+
+option go_package = ".";
+
+message OrderDetailsRequest {
+    string FOD_CLM_MTCH_ACCNT = 1; 
+}
+
+message OrdDetail {
+    string ContractDescriptor = 1;
+    string VTCDate = 2;
+    string BuySell = 3;
+    int32 Quantity = 4;
+    string Status = 5;
+    float OrderPrice = 6;
+    string Open = 7;
+}
+
+message OrderDetailsResponse {
+    repeated OrdDetail OrdDetails = 1;
+}
+
+service OrderDetailsService {
+    //getOrderDetails
+    rpc GetOrderDetails(OrderDetailsRequest) returns (OrderDetailsResponse);
+}
+
+//protoc --proto_path=internal --go_out=internal/generated --go-grpc_out=internal/generated internal/positions/fno_pos.proto
+
+//Updated internal/generated to generated
+//protoc --proto_path=internal --go_out=generated --go-grpc_out=generated internal/orders/OrderDtls.proto

@@ -1,0 +1,11 @@
+go 1.22.5
+
+use (
+    ./ApplicationServer/Fno_Open_Pos
+    ./Webserver
+    ./ApplicationServer/Fno_Ord_Dtls_Service
+    ./ApplicationServer/Comd_Open_Pos_Service
+    ./ApplicationServer/MTF_OPEN_POS
+)
+
+
