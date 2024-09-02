@@ -20,6 +20,7 @@ func NewEquityService(repo repository.EquityRepository) *EquityService {
 	return &EquityService{repo: repo}
 }
 
+
 func (s *EquityService) GetMtfPosition(ctx context.Context, req *pb.PositionRequest) (*pb.PositionResponse, error) {
 	fmt.Println("Read Positions", req.GetEpbClmMtchAccnt())
 

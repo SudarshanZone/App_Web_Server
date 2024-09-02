@@ -6,6 +6,7 @@ use (
     ./ApplicationServer/Fno_Ord_Dtls_Service
     ./ApplicationServer/Comd_Open_Pos_Service
     ./ApplicationServer/MTF_OPEN_POS
+    ./ApplicationServer/Equity_Main_Pos_service
 )
 
 

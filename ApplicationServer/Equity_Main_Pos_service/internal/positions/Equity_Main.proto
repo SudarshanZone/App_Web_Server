@@ -1,0 +1,48 @@
+// protoc --proto_path=internal --go_out=generated --go-grpc_out=generated internal/positions/Equity_Main.proto
+
+
+syntax = "proto3";
+package position;
+
+option go_package =".";
+service PositionService
+{  
+    rpc GetPosition(PositionRequest) returns (PositionResponse);
+}
+
+message PositionRequest 
+{ 
+string otp_clm_mtch_acct= 1;    
+}
+
+message EquityPosition {
+    string otp_clm_mtch_acct = 1;            // character(10)
+    string otp_xchng_cd = 2;                 // character(3)
+    string otp_xchng_sgmnt_cd = 3;           // character(2)
+    int32 otp_xchng_sgmnt_sttlmnt = 4;       // integer
+    string otp_stck_cd = 5;                  // character(6)
+    string otp_flw = 6;                      // character(1)
+    int64 otp_qty = 7;                       // bigint
+    int64 otp_cnvrt_dlvry_qty = 8;           // bigint
+    int64 otp_cvrd_qty = 9;                  // bigint
+    string otp_rt = 10;                      // numeric(20,10) - represented as string in proto
+    double otp_mrgn_amt = 11;                // double precision
+    double otp_trd_val = 12;                 // double precision
+    string otp_rmrks = 13;                   // character varying(50)
+    string otp_xfer_mrgn_stts = 14;          // character(1)
+    string otp_sell_opn_prccsd = 15;         // character(1)
+    string otp_buy_opn_prccsd = 16;          // character(1)
+    string otp_mrgn_sqroff_mode = 17;        // character(1)
+    string otp_em_trdsplt_prcs_flg = 18;     // character(1)
+    string otp_mtm_flg = 19;                 // character(1)
+    string otp_mtm_cansq = 20;               // character(1)
+    string otp_eos_can = 21;                 // character(1)
+    double otp_trgr_prc = 22;                // double precision
+    float otp_16_trgr_prc = 23;             // double precision
+    double otp_min_mrgn = 24;                // double precision
+    string otp_t5_trdsplt_prcs_flg= 25;
+}
+
+message PositionResponse {
+   repeated EquityPosition equity = 1;
+}
