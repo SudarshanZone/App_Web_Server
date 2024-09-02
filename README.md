@@ -116,11 +116,12 @@ C:\Users\Sudarshan\Pictures\Github_Code_IRRA>IRRA_BACKEND
 
 
 # Ports
-grpc_server_address_1 = localhost:50051  //FNO_OPen
-grpc_server_address_2 = localhost:50052  //FNO_Order_DTLS
-grpc_server_address_3 = localhost:50053  //Commodities_Open_Pos
-grpc_server_address_4 = localhost:50054  //MTF_Open_Pos
+1) grpc_server_address_1 = localhost:50051  //FNO_OPen
 
+2) grpc_server_address_2 = localhost:50052  //FNO_Order_DTLS
 
-# Webserver :- 
-  => '8080'
+3) grpc_server_address_3 = localhost:50053  //Commodities_Open_Pos
+
+4) grpc_server_address_4 = localhost:50054  //MTF_Open_Pos
+
+# Webserver :- localhost:8080
