@@ -114,4 +114,8 @@ IRRA_BACKEND
          4) MTF_Equity Open Positions
             http://localhost:8080/GetMtfPosition/8500016189 
 
+         5) Equity_Main_Open_Position
+            http://localhost:8080/GetPosition/8509000165
+            
+             
 
