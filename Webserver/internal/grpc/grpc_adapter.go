@@ -7,7 +7,8 @@ import (
 	pb "github.com/SudarshanZone/Fno_Open_Pos/generated"   //fno
 	ob "github.com/SudarshanZone/Fno_Ord_Dtls/generated"   //fno
 	mt "github.com/SudarshanZone/MTF_OPEN_POS/generated"   //MTF
-	eq "github.com/SudarshanZone/Equity_Main_Open_Pos/generated"
+	eq "github.com/SudarshanZone/Equity_Main_Open_Pos/generated" //eq_main
+	eqord "github.com/SudarshanZone/Equity_Ord_Dtls/generated"  //eqity_ord_stls
 )
 
 
@@ -28,6 +29,10 @@ type Adapter interface {
 
 	//Equity_Main positions
 	GetEquityMainPosition(ctx context.Context,account string)(*eq.PositionResponse,error)
+
+	//Equity Order Dtls Service
+	GetOrder(ctx context.Context,account string)(*eqord.OrderResponse,error)
+
 }
 
 type grpcAdapter struct {
@@ -36,6 +41,7 @@ type grpcAdapter struct {
 	commClient  cp.CCPServiceClient
 	mtfClient   mt.MtfPositionServiceClient
 	eqClient    eq.PositionServiceClient
+	eqordClient eqord.OrderServiceClient
 }
 
 
@@ -93,13 +99,26 @@ func(a *grpcAdapter) GetEquityMainPosition(ctx context.Context,account string)(*
 	return resp,err
 }
 
+//Equity_ord_dtls_service
+func(a *grpcAdapter) GetOrder(ctx context.Context,account string)(*eqord.OrderResponse,error){
+	req := &eqord.OrderRequest{
+		OrdClmMtchAccnt: account,
+	}
+	resp,err := a.eqordClient.GetOrder(ctx,req)
+		if err != nil{
+		return nil,fmt.Errorf("failed to fetch Equity Order Details: %w",err)
+	}
+	return resp,err
+}
 
-func NewGrpcAdapter(fnoClient pb.FnoPositionServiceClient, orderClient ob.OrderDetailsServiceClient, commClient cp.CCPServiceClient, mtfClient mt.MtfPositionServiceClient,eqClient eq.PositionServiceClient) Adapter {
+
+func NewGrpcAdapter(fnoClient pb.FnoPositionServiceClient, orderClient ob.OrderDetailsServiceClient, commClient cp.CCPServiceClient, mtfClient mt.MtfPositionServiceClient,eqClient eq.PositionServiceClient,eqOrdClient eqord.OrderServiceClient) Adapter {
 	return &grpcAdapter{
 		fnoClient:   fnoClient,
 		orderClient: orderClient,
 		commClient:  commClient,
 		mtfClient:   mtfClient,
 		eqClient: eqClient,
+		eqordClient: eqOrdClient,
 	}
 }

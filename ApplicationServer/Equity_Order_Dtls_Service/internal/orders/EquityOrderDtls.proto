@@ -1,0 +1,142 @@
+// protoc --proto_path=internal --go_out=generated --go-grpc_out=generated internal/orders/EquityOrderDtls.proto
+syntax = "proto3";
+
+package orders;
+
+option go_package = ".";
+
+service OrderService {
+    rpc GetOrder(OrderRequest) returns (OrderResponse);
+}
+
+message OrderRequest {
+    string ord_clm_mtch_accnt = 1;
+}
+
+message OrdOrdrDtls {
+    string ord_clm_mtch_accnt = 1;
+    string ord_stck_cd = 2;
+    string ord_ordr_dt = 3;
+    string ord_ordr_flw = 4;
+    int32 ord_ordr_qty = 5;
+    double ord_lmt_rt = 6;
+    string ord_ordr_stts = 7;
+}
+
+message OrderResponse {
+    repeated OrdOrdrDtls ord_dtls = 1;
+}
+
+
+// //ApplicationServer\Open_Pos\internal\orders\OrderDtls.proto
+
+// syntax = "proto3";
+
+// package orders;
+
+// option go_package = ".";
+
+// import "google/protobuf/wrappers.proto";
+
+// service OrderService {
+//     rpc GetOrder(OrderRequest) returns (OrderResponse);
+// }
+
+// message OrderRequest {
+//     string ord_clm_mtch_accnt = 1;
+// }
+
+// message OrdOrdrDtls {
+//     string ord_clm_mtch_accnt = 1;
+//     string ord_ordr_rfrnc = 2;
+//     string ord_xchng_cd = 3;
+//     string ord_stck_cd = 4;
+//     string ord_xchng_sgmnt_cd = 5;
+//     int32 ord_xchng_sgmnt_sttlmnt = 6;
+//     string ord_ordr_dt = 7;
+//     string ord_ordr_flw = 8;
+//     string ord_prdct_typ = 9;
+//     int32 ord_ordr_qty = 10;
+//     string ord_lmt_mrkt_flg = 11;
+//     double ord_lmt_rt = 12;
+//     int32 ord_dsclsd_qty = 13;
+//     double ord_stp_lss_tgr = 14;
+//     string ord_ordr_stts = 15;
+//     string ord_trd_dt = 16;
+//     string ord_sub_brkr_tag = 17;
+//     int32 ord_mdfctn_cntr = 18;
+//     string ord_ack_nmbr = 19;
+//     double ord_xchng_ack_old = 20;
+//     int32 ord_exctd_qty = 21;
+//     double ord_amt_blckd = 22;
+//     double ord_brkrg_val = 23;
+//     string ord_dp_id = 24;
+//     string ord_dp_clnt_id = 25;
+//     int32 ord_phy_qty = 26;
+//     string ord_isin_nmbr = 27;
+//     string ord_nd_flg = 28;
+//     string ord_msc_char = 29;
+//     string ord_msc_varchar = 30;
+//     double ord_msc_int = 31;
+//     string ord_plcd_stts = 32;
+//     int32 ord_qty_blckd = 33;
+//     double ord_mrgn_prcntg = 34;
+//     string ord_ipo_flg = 35;
+//     double ord_lss_amt_blckd = 36;
+//     int64 ord_lss_qty = 37;
+//     string ord_mtm_flg = 38;
+//     string ord_sq_flg = 39;
+//     string ord_schm_id = 40;
+//     string ord_pipe_id = 41;
+//     double ord_prtctn_rt = 42;
+//     string ord_sl_trg_flg = 43;
+//     int32 ord_xchng_usr_id = 44;
+//     int32 ord_btst_sttlmnt_nmbr = 45;
+//     string ord_btst_sgmnt_cd = 46;
+//     string ord_channel = 47;
+//     string ord_bp_id = 48;
+//     string ord_sltp_ordr_rfrnc = 49;
+//     string ord_ctcl_id = 50;
+//     string ord_usr_id = 51;
+//     int32 ord_cnt_id = 52;
+//     int32 ord_em_settlmnt_nmbr = 53;
+//     string ord_mrgn_sqroff_mode = 54;
+//     int32 ord_cncl_qty = 55;
+//     string ord_ordr_typ = 56;
+//     string ord_valid_dt = 57;
+//     string ord_cal_flg = 58;
+//     string ord_xchng_ack = 59;
+//     string ord_em_rollovr_flg = 60;
+//     double ord_trd_val = 61;
+//     string ord_trd_cntrct_nmbr = 62;
+//     double ord_avg_exctd_rt = 63;
+//     string ord_prc_imp_flg = 64;
+//     string ord_mbc_flg = 65;
+//     double ord_trl_amt = 66;
+//     double ord_lmt_offst = 67;
+//     string ord_source_flg = 68;
+//     string ord_pan_no = 69;
+//     string ord_atm_payout_stts = 70;
+//     string ord_esp_cd = 71;
+//     string ord_remarks = 72;
+//     string ord_wthld_amt_stts = 73;
+//     string ord_pstn_xchng_cd = 74;
+//     string ord_interop_ord_flg = 75;
+//     int32 ord_settlement_period = 76;
+//     string ord_algo_id = 77;
+//     string ord_bundle_name = 78;
+//     string ord_prt_flg = 79;
+//     string ord_src_tag = 80;
+//     double ord_rls_amt = 81;
+//     string ord_rls_date = 82;
+//     string ord_mtf_unplg_sqroff = 83;
+//     int32 ord_n_ordr_qty = 84;
+//     string ord_ack_date = 85;
+//     string ord_last_activity_ref = 86;
+//     // string ord_clm_clnt_cd = 87;
+//     google.protobuf.StringValue ord_clm_clnt_cd = 87;
+// }
+
+// message OrderResponse {
+//     repeated OrdOrdrDtls ord_dtls = 1;
+// }

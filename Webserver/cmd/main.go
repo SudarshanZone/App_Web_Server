@@ -33,7 +33,7 @@ func main() {
     }
 
     // Create gRPC client
-    grpcClient ,err := grpc.NewClient(cfg.GRPCServerAddress1,cfg.GRPCServerAddress2,cfg.GRPCServerAddress3,cfg.GRPCServerAddress4,cfg.GRPCServerAddress5)
+    grpcClient ,err := grpc.NewClient(cfg.GRPCServerAddress1,cfg.GRPCServerAddress2,cfg.GRPCServerAddress3,cfg.GRPCServerAddress4,cfg.GRPCServerAddress5,cfg.GRPCServerAddress6)
     if err != nil {
         logger.Fatalf("Failed to create gRPC client: %v", err)
     }
@@ -46,6 +46,7 @@ func main() {
         grpcClient.CommodityPositionServiceClient,
         grpcClient.MtfPositionServiceClient,
         grpcClient.EquityMainServiceClient,
+        grpcClient.EquityOrdServiceClient,
     )
 
     // Create facade

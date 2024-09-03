@@ -1,13 +1,13 @@
 package handlers
 
 import (
-    "github.com/gin-gonic/gin"
-    "net/http"
-    logrus "github.com/sirupsen/logrus"
+	"github.com/gin-gonic/gin"
+	logrus "github.com/sirupsen/logrus"
+	"net/http"
 )
 
 func SetupRoutes(router *gin.Engine, facade Facade, logger *logrus.Entry) {
-    	router.GET("/getFNOPosition/:UCCID", func(c *gin.Context) {
+	router.GET("/getFNOPosition/:UCCID", func(c *gin.Context) {
 		UCCID := c.Param("UCCID")
 
 		// Log incoming request
@@ -36,7 +36,7 @@ func SetupRoutes(router *gin.Engine, facade Facade, logger *logrus.Entry) {
 		c.JSON(http.StatusOK, gin.H{"positions": resp})
 	})
 
-    	router.GET("/getOrderDetails/:OrderID", func(c *gin.Context) {
+	router.GET("/getOrderDetails/:OrderID", func(c *gin.Context) {
 		OrderID := c.Param("OrderID")
 
 		// Log incoming request
@@ -65,36 +65,48 @@ func SetupRoutes(router *gin.Engine, facade Facade, logger *logrus.Entry) {
 		c.JSON(http.StatusOK, gin.H{"orderDetails": resp})
 	})
 
-
-    router.GET("/GetCommodityPositions/:account", func(c *gin.Context) {
-        account := c.Param("account")
-        resp, err := facade.GetCommodityPositions(account)
-        if err != nil {
-            logger.Errorf("Error fetching commodity positions: %v", err)
-            c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
-            return
-        }
-        c.JSON(http.StatusOK, resp)
-    })
-
-	router.GET("/GetMtfPosition/:account",func(c *gin.Context) {
+	router.GET("/GetCommodityPositions/:account", func(c *gin.Context) {
 		account := c.Param("account")
-		resp,err := facade.GetMtfPositions(account)
-		if err !=nil{
-			logger.Error("Error fetching MTF Positions: %s",err.Error())
+		resp, err := facade.GetCommodityPositions(account)
+		if err != nil {
+			logger.Errorf("Error fetching commodity positions: %v", err)
+			c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
+			return
+		}
+		c.JSON(http.StatusOK, resp)
+	})
+
+	router.GET("/GetMtfPosition/:account", func(c *gin.Context) {
+		account := c.Param("account")
+		resp, err := facade.GetMtfPositions(account)
+		if err != nil {
+			logger.Error("Error fetching MTF Positions: %s", err.Error())
 			c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
 		}
-		c.JSON(http.StatusOK,resp)
+		c.JSON(http.StatusOK, resp)
 	})
 
-	router.GET("/GetPosition/:account",func(ctx *gin.Context) {
+	router.GET("/GetPosition/:account", func(ctx *gin.Context) {
 		account := ctx.Param("account")
-		resp,err := facade.GetEquityPosition(account)
-		if err !=nil{
-			logger.Error("Error fetching Equity Positions: %s",err.Error())
+		resp, err := facade.GetEquityPosition(account)
+		if err != nil {
+			logger.Error("Error fetching Equity Positions: %s", err.Error())
 			ctx.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
 		}
-		ctx.JSON(http.StatusOK,resp)
+		ctx.JSON(http.StatusOK, resp)
 	})
-}
 
+	//Equity Order Details Open Positions
+
+	router.GET("/GetOrder/:account", func(ctx *gin.Context) {
+		account := ctx.Param("account")
+		response, err := facade.GetOrder(account)
+		if err != nil {
+			logger.Error("Error Fetching Equity Order Details: %s", err.Error())
+			ctx.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
+		}
+		ctx.JSON(http.StatusOK, response)
+
+	})
+
+}

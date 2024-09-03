@@ -7,6 +7,9 @@ use (
     ./ApplicationServer/Comd_Open_Pos_Service
     ./ApplicationServer/MTF_OPEN_POS
     ./ApplicationServer/Equity_Main_Pos_service
+    ./ApplicationServer/Equity_Order_Dtls_Service
+
 )
+
 
 
