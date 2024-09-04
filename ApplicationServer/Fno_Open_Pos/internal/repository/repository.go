@@ -51,13 +51,18 @@ func (repo *FnoPositionRepository) GetPositionsByClaimMatchAccount(claimMatchAcc
         FROM
             FCP_FO_SPN_CNTRCT_PSTN
         WHERE
-            (FCP_OPNPSTN_QTY != 0 OR FCP_IBUY_QTY != 0 OR FCP_ISELL_QTY != 0)
-            AND FCP_CLM_MTCH_ACCNT = ?
-            AND FCP_OPNPSTN_FLW != 'N';  -- Exclude records where FCP_OPNPSTN_FLW = 'N'
+            FCP_CLM_MTCH_ACCNT = ?;  
     `
+    fmt.Println("Executing query:", query)
+    fmt.Println("Parameters:", claimMatchAccount)
+    
+    // (FCP_OPNPSTN_QTY != 0 OR FCP_IBUY_QTY != 0 OR FCP_ISELL_QTY != 0) AND FCP_OPNPSTN_FLW != 'N';  -- Exclude records where FCP_OPNPSTN_FLW = 'N'
 	err := repo.Db.Raw(query, claimMatchAccount).Scan(&positions).Error
 	if err != nil {
 		return nil, fmt.Errorf("error fetching positions: %w", err)
 	}
+    for _, pos := range positions {
+		fmt.Printf("Object: %+v\n", pos)
+    }
 	return positions, nil
 }

@@ -42,4 +42,4 @@ message FcpDetailListResponse {
 //protoc --proto_path=internal --go_out=internal/generated --go-grpc_out=internal/generated internal/positions/fno_pos.proto
 
 //Updated internal/generated to generated
-//protoc --proto_path=internal --go_out=generated --go-grpc_out=generated internal/positions/fno_pos.proto
+// protoc --proto_path=internal --go_out=generated --go-grpc_out=generated internal/positions/fno_pos.proto

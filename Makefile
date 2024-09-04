@@ -7,7 +7,7 @@ run:
 	@powershell -Command "Start-Process cmd -ArgumentList '/c cd ApplicationServer/Fno_Ord_Dtls_Service && go run cmd/main.go' -NoNewWindow -PassThru | Select-Object -ExpandProperty Id | Out-File -Append $(PIDS_FILE)"
 	@powershell -Command "Start-Process cmd -ArgumentList '/c cd ApplicationServer/Comd_Open_Pos_Service && go run cmd/main.go' -NoNewWindow -PassThru | Select-Object -ExpandProperty Id | Out-File -Append $(PIDS_FILE)"
 	@powershell -Command "Start-Process cmd -ArgumentList '/c cd ApplicationServer/MTF_OPEN_POS && go run cmd/main.go' -NoNewWindow -PassThru | Select-Object -ExpandProperty Id | Out-File -Append $(PIDS_FILE)"
-
+	
 
 	@powershell -Command "Start-Process cmd -ArgumentList '/c cd Webserver && go run cmd/main.go' -NoNewWindow -PassThru | Select-Object -ExpandProperty Id | Out-File -Append $(PIDS_FILE)"
 	@echo "Applications started."
