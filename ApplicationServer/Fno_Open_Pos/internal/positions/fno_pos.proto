@@ -18,7 +18,7 @@ message FnoPositionRequest {
 message FcpDetail {
     string FFO_CONTRACT = 1;
     string FFO_PSTN = 2;
-    int32 FFO_QTY = 3;
+    int32 FCP_OPNPSTN_QTY = 3;
     float FFO_AVG_PRC = 4;
     string FCP_XCHNG_CD = 5;
     int32 FCP_IBUY_QTY = 6;

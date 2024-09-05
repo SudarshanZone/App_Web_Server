@@ -28,7 +28,7 @@ func (s *FnoPositionService) GetFNOPosition(ctx context.Context, req *pb.FnoPosi
 		fcpDetail := &pb.FcpDetail{
 			FFO_CONTRACT:     pos.Contract,
 			FFO_PSTN:         pos.Position,
-			FFO_QTY:          int32(pos.TotalQty),
+			FCP_OPNPSTN_QTY:          int32(pos.TotalQty),
 			FFO_AVG_PRC:      float32(pos.AvgCostPrice),
 			FCP_XCHNG_CD:     pos.ExchangeCode,
 			FCP_IBUY_QTY:     int32(pos.BuyQty),
@@ -61,17 +61,17 @@ func (s *FnoPositionService) logPositionDetails(c_ServiceName string, pos *pb.Fc
 	log.Infof("%s: :FCP_CLM_MTCH_ACCNT:%s:", c_ServiceName, pos.FCP_CLM_MTCH_ACCNT)
 	log.Infof("%s: :FFO_CONTRACT :%s:", c_ServiceName, pos.FFO_CONTRACT)
 	log.Infof("%s: :FFO_PSTN :%s:", c_ServiceName, pos.FFO_PSTN)
-	log.Infof("%s: :FFO_QTY :%d:", c_ServiceName, pos.FFO_QTY)
+	log.Infof("%s: :FCP_OPNPSTN_QTY :%d:", c_ServiceName, pos.FCP_OPNPSTN_QTY)
 	log.Infof("%s: :FFO_AVG_PRC :%s:", c_ServiceName, pos.FFO_CONTRACT)
-	// log.Infof("%s: :FCP_PRDCT_TYP:%s:", c_ServiceName, pos.FCP_PRDCT_TYP)
-	// log.Infof("%s: :FCP_INDSTK:%s:", c_ServiceName, pos.FCP_INDSTK)
-	// log.Infof("%s: :FCP_UNDRLYNG:%s:", c_ServiceName, pos.FCP_UNDRLYNG)
-	// log.Infof("%s: :FCP_EXPRY_DT:%s:", c_ServiceName, pos.FCP_EXPRY_DT)
-	// log.Infof("%s: :FCP_EXER_TYP:%s:", c_ServiceName, pos.FCP_EXER_TYP)
-	// log.Infof("%s: :FCP_OPT_TYP:%s:", c_ServiceName, pos.FCP_OPT_TYP)
-	// log.Infof("%s: :FCP_STRK_PRC:%f:", c_ServiceName, pos.FCP_STRK_PRC)
-	// log.Infof("%s: :FCP_OPNPSTN_FLW:%s:", c_ServiceName, pos.FCP_OPNPSTN_FLW)
-	// log.Infof("%s: :FFO_QTY:%d:", c_ServiceName, pos.FFO_QTY)
-	// log.Println()
+	log.Infof("%s: :FCP_PRDCT_TYP:%s:", c_ServiceName, pos.FCP_PRDCT_TYP)
+	log.Infof("%s: :FCP_INDSTK:%s:", c_ServiceName, pos.FCP_INDSTK)
+	log.Infof("%s: :FCP_UNDRLYNG:%s:", c_ServiceName, pos.FCP_UNDRLYNG)
+	log.Infof("%s: :FCP_EXPRY_DT:%s:", c_ServiceName, pos.FCP_EXPRY_DT)
+	log.Infof("%s: :FCP_EXER_TYP:%s:", c_ServiceName, pos.FCP_EXER_TYP)
+	log.Infof("%s: :FCP_OPT_TYP:%s:", c_ServiceName, pos.FCP_OPT_TYP)
+	log.Infof("%s: :FCP_STRK_PRC:%f:", c_ServiceName, pos.FCP_STRK_PRC)
+	log.Infof("%s: :FCP_OPNPSTN_FLW:%s:", c_ServiceName, pos.FCP_OPNPSTN_FLW)
+	log.Infof("%s: :FFO_QTY:%d:", c_ServiceName, pos.FCP_OPNPSTN_QTY)
+	log.Println()
 }
 
