@@ -2,7 +2,7 @@
 package main
 
 import (
-	"log"
+	"github.com/SudarshanZone/Fno_Open_Pos/internal/logger"
 	"net"
 
 	"github.com/SudarshanZone/Fno_Open_Pos/config"
@@ -13,7 +13,12 @@ import (
 )
 
 func main() {
-	serviceName := "main"
+
+	//log imported
+	logger.InitLogger()
+    log := logger.GetLogger()
+
+	serviceName := "FnoOpenPosService"
 	fileName := "config/EnvConfig.ini"
 
 	cm := &config.ConfigManager{}

@@ -1,7 +1,5 @@
 
 
-
-
 # How to Kill Port
 1) open CMD/Powertshell as admistator
 

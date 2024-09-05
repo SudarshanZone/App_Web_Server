@@ -1,0 +1,30 @@
+
+2024-09-05 12:52:30 : Starting gRPC server on port 50051
+2024-09-05 12:52:56 : FnoPositionService: Started
+2024-09-05 12:52:56 : FnoPositionService: @@@@@@@@@@@@@@@@ FETCH RECORD @@@@@@@@@@@@@@@@:
+2024-09-05 12:52:56 : FnoPositionService: :FCP_CLM_MTCH_ACCNT:8509041939:
+2024-09-05 12:52:56 : FnoPositionService: :FFO_CONTRACT :FUT-ACC-25-Jul-2024:
+2024-09-05 12:52:56 : FnoPositionService: :FFO_PSTN :BUY:
+2024-09-05 12:52:56 : FnoPositionService: :FFO_QTY :900:
+2024-09-05 12:52:56 : FnoPositionService: :FFO_AVG_PRC :FUT-ACC-25-Jul-2024:
+2024-09-05 12:52:56 : FnoPositionService: Started
+2024-09-05 12:52:56 : FnoPositionService: @@@@@@@@@@@@@@@@ FETCH RECORD @@@@@@@@@@@@@@@@:
+2024-09-05 12:52:56 : FnoPositionService: :FCP_CLM_MTCH_ACCNT:8509041939:
+2024-09-05 12:52:56 : FnoPositionService: :FFO_CONTRACT :FUT-ACC-29-Aug-2024:
+2024-09-05 12:52:56 : FnoPositionService: :FFO_PSTN :BUY:
+2024-09-05 12:52:56 : FnoPositionService: :FFO_QTY :300:
+2024-09-05 12:52:56 : FnoPositionService: :FFO_AVG_PRC :FUT-ACC-29-Aug-2024:
+2024-09-05 12:53:23 : FnoPositionService: Started
+2024-09-05 12:53:23 : FnoPositionService: @@@@@@@@@@@@@@@@ FETCH RECORD @@@@@@@@@@@@@@@@:
+2024-09-05 12:53:23 : FnoPositionService: :FCP_CLM_MTCH_ACCNT:8509041939:
+2024-09-05 12:53:23 : FnoPositionService: :FFO_CONTRACT :FUT-ACC-25-Jul-2024:
+2024-09-05 12:53:23 : FnoPositionService: :FFO_PSTN :BUY:
+2024-09-05 12:53:23 : FnoPositionService: :FFO_QTY :900:
+2024-09-05 12:53:23 : FnoPositionService: :FFO_AVG_PRC :FUT-ACC-25-Jul-2024:
+2024-09-05 12:53:23 : FnoPositionService: Started
+2024-09-05 12:53:23 : FnoPositionService: @@@@@@@@@@@@@@@@ FETCH RECORD @@@@@@@@@@@@@@@@:
+2024-09-05 12:53:23 : FnoPositionService: :FCP_CLM_MTCH_ACCNT:8509041939:
+2024-09-05 12:53:23 : FnoPositionService: :FFO_CONTRACT :FUT-ACC-29-Aug-2024:
+2024-09-05 12:53:23 : FnoPositionService: :FFO_PSTN :BUY:
+2024-09-05 12:53:23 : FnoPositionService: :FFO_QTY :300:
+2024-09-05 12:53:23 : FnoPositionService: :FFO_AVG_PRC :FUT-ACC-29-Aug-2024:
